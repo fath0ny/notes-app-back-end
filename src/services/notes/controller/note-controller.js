@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import notes from './notes.js';
+import notes from '../notes.js';
 
 export const createNote = (req, res, next) => {
   const { title = 'untitled', tags, body } = req.body;
@@ -39,7 +39,7 @@ export const getNoteById = (req, res) => {
 
   if (note) {
     return res.json({
-      status: 'Success',
+      status: 'success',
       data: { note }
     });
   }
