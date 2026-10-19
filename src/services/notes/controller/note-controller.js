@@ -21,7 +21,12 @@ export const createNote = (req, res, next) => {
   return response(res, 201, 'Catatan berhasil ditambahkan', { noteId: id });
 };
 
-export const getNotes = (req, res) => {
+export const getNotes = (req, res, next) => {
+  const { title = '' } = req.query;
+  if (title !== '') {
+    const note = notes.filter((note) => note.title === title);
+    return response(res, 200, 'success', { notes: note });
+  }
   return res.json({
     status: 'success',
     data: { notes }
