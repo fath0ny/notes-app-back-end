@@ -36,7 +36,7 @@ export const getNoteById = (req, res, next) => {
     return next(new NotFoundError('Catatan tidak ditemukan'));
   }
 
-  return response(res, 201, 'Catatan berhasil ditampilkan', { note: note });
+  return response(res, 200, 'Catatan berhasil ditampilkan', { note: note });
 };
 
 export const editNoteById = (req, res, next) => {
@@ -50,7 +50,7 @@ export const editNoteById = (req, res, next) => {
   }
 
   notes[index] = { ...notes[index], title, tags, body, updatedAt };
-  return response(res, 201, 'Catatan berhasil ditampilkan', notes[index]);
+  return response(res, 200, 'Catatan berhasil diperbarui', notes[index]);
 };
 
 export const deleteNoteById = (req, res, next) => {
@@ -62,5 +62,5 @@ export const deleteNoteById = (req, res, next) => {
   }
 
   notes.splice(index, 1);
-  return response(res, 201, 'Catatan berhasil dihapus');
+  return response(res, 200, 'Catatan berhasil dihapus');
 };
