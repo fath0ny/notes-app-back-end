@@ -6,8 +6,9 @@ import ErrorHandler from '../middlewares/error.js';
 import cors from 'cors';
 
 const app = express();
+
 app.use(cors({
-  origin: 'http://notesapp-v1.dicodingacademy.com'
+  origin: '*'
 }));
 app.use(express.json());
 app.use(routes);
