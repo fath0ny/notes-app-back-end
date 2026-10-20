@@ -8,7 +8,7 @@ import cors from 'cors';
 const app = express();
 
 app.use(cors({
-  origin: '*'
+  origin: 'https://notesapp-v1.dicodingacademy.com/'
 }));
 app.use(express.json());
 app.use(routes);
