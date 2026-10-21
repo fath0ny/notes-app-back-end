@@ -1,6 +1,6 @@
 import NoteRepositories from '../repositories/note-repositories.js';
 import { InvariantError, NotFoundError } from '../../../exceptions/index.js';
-import response from '../../../../utils/response.js';
+import response from '../../../utils/response.js';
 
 export const createNote = async (req, res, next) => {
   const { title, body, tags } = req.validated;
