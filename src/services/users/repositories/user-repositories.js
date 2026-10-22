@@ -18,7 +18,7 @@ class UserRepositories {
       values: [id, username, hashedPassword, fullname, createdAt, updatedAt],
     };
 
-    const result = await this._pool.query(query);
+    const result = await this.pool.query(query);
     return result.rows[0];
   }
 
@@ -28,7 +28,7 @@ class UserRepositories {
       values: [username],
     };
 
-    const result = await this._pool.query(query);
+    const result = await this.pool.query(query);
 
     return result.rows.length > 0;
   }
@@ -39,7 +39,7 @@ class UserRepositories {
       values: [id],
     };
 
-    const result = await this._pool.query(query);
+    const result = await this.pool.query(query);
 
     return result.rows[0];
   }
@@ -50,7 +50,7 @@ class UserRepositories {
       values: [username],
     };
 
-    const user = await this._pool.query(query);
+    const user = await this.pool.query(query);
     if (!user) {
       return null;
     }
@@ -66,4 +66,4 @@ class UserRepositories {
   }
 }
 
-export default UserRepositories;
+export default new UserRepositories();
